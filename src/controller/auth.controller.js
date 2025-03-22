@@ -69,7 +69,28 @@ export const login = async (req, res) => {
   }
 };
 
+export const dashboard = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const user = await User.findOne({ where: { id: userId } });
 
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    // Respond with user data for dashboard
+    return res.status(200).json({
+      message: "Dashboard loaded",
+      user: {
+        email: user.email,
+        firstname: user.firstname,
+        lastname: user.lastname,
+        btc_balance: user.btc_balance,
+        usdt_balance: user.usdt_balance,
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error loading dashboard", error: error.message });
+  }
+};
 
 export const getAllUsers = async (req, res) => {
   try {
