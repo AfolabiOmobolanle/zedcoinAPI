@@ -8,9 +8,8 @@
     "start": "if [ \"$NODE_ENV\" != \"production\" ]; then sequelize-cli db:drop; fi && sequelize-cli db:migrate && node app.js",
     "migrate:dev": "sequelize-cli db:migrate",
     "migrate:prod": "NODE_ENV=production sequelize-cli db:migrate",
-      "vercel-build": "npm install pg && npm run build"
-
-  },
+"vercel-build": "npm install pg && npm run build",
+  "build": "echo 'No build steps defined'"  },
   "type": "module",
   "keywords": [],
   "author": "",
