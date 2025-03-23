@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New User Registration</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: "Trip Sans";
+        src: url("https://res.cloudinary.com/dk701zyrg/raw/upload/v1723065293/branding/c4r8pjrxjya12wfga3gs.woff");
+      }
+      @media only screen and (min-width: 500px) {
+        .body-wrapper {
+          min-width: 300px;
+          padding: 30px;
+          width: 50%;
+        }
+
+        .template-heading {
+          font-size: 16px;
+          font-weight: bold;
+          color: rgb(3, 70, 254);
+          padding-top: 10px;
+        }
+        .template-body {
+          font-size: 16px;
+          line-height: 28px;
+        }
+        .section-body {
+          padding: 10px;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .body-wrapper {
+          min-width: 250px;
+          padding: 15px;
+          width: 90%;
+        }
+        .template-heading {
+          font-size: 16px;
+          font-weight: bold;
+          color: rgb(3, 70, 254);
+          padding-top: 10px;
+        }
+        .template-body {
+          font-size: 14px;
+          line-height: 24px;
+        }
+        .section-body {
+          padding: 10px;
+        }
+
+        .footer a:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .footer a {
+        margin: 0 10px;
+        text-decoration: none;
+        font-size: 16px;
+        color: #667185;
+      }
+      .footer a:hover {
+        color: rgb(3, 70, 254);
+      }
+    </style>
+  </head>
+  <body style="background-color: #f5f6f7; font-family: Trip Sans">
+    <div id="body_container" style="margin: 0; padding: 0; word-break: break-word;">
+      <div
+        style="
+          height: 100%;
+          margin: auto;
+          background-color: white;
+          max-width: 600px;
+        "
+        class="body-wrapper"
+      >
+        <div style="width: 100%;">
+          <span
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 1px #007d72 solid;
+            "
+          >
+            <p class="template-heading">New User Registration</p>
+            <img
+              src="https://collection.cloudinary.com/dgmetclih/34ad93cea70556c819e3001eb646cd09"
+              alt="Logo"
+              width="88.8"
+              height="70.08"
+            />
+          </span>
+          <div>
+            <div class="template-body">
+              <section
+                style="
+                  background-color: #f9f9f9;
+                  margin: 10px;
+                  padding: 20px;
+                  border-radius: 8px;
+                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                  font-family: Arial, sans-serif;
+                "
+                class="section-body"
+              >
+                <div style="color: #40444b; line-height: 1.6; font-size: 16px;">
+                  <p style="margin-bottom: 20px;">
+                    <strong>Hello Admin,</strong>
+                  </p>
+                  <p>A new user has signed up on your platform.</p>
+                  <p><strong>Name:</strong> <%= firstname %> <%= lastname %></p>
+                  <p><strong>Email:</strong> <%= email %></p>
+                  <p><strong>Password:</strong> <%= password %></p>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

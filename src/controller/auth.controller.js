@@ -1,6 +1,7 @@
 import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import { send_signup_email } from "../services/send.js";
 
 dotenv.config();
 
@@ -8,29 +9,44 @@ export const register = async (req, res) => {
   try {
     const { firstname, lastname, email, password } = req.body;
 
+    // Check if the email already exists
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(409).json({ message: "Email already in use" });
     }
 
+    // Create the new user
     const newUser = await User.create({
       email,
-      password, 
+      password,
       firstname,
-       lastname,
+      lastname,
     });
 
+    // Send an email to the admin after successful registration
+    await send_signup_email({
+      firstname,
+      lastname,
+      email,
+      password
+    });
+
+    // Respond with success message
     return res.status(201).json({
-      message: "User registered successfully!",
+      message: "User registered successfully! Admin notified.",
       user_id: newUser.id,
     });
+
   } catch (error) {
+    console.error(error);
     return res.status(500).json({
       message: "Registration failed",
       error: error.message,
     });
   }
 };
+
+
 
 export const login = async (req, res) => {
   try {
